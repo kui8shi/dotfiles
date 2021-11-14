@@ -1,6 +1,3 @@
-# dotfiles のサンプルリポジトリ
-
-
 ## dotfiles
 
 ```sh
