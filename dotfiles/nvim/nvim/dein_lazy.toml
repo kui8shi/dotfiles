@@ -1,0 +1,16 @@
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+    let NERDTreeShowHidden = 1
+    nnoremap <silent><C-a> :NERDTreeFind<CR>:vertical res 20<CR>
+'''
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --bin'
+merged = '0'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+
