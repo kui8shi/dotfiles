@@ -20,4 +20,3 @@ hook_add = '''
     let g:airline#extensions#tabline#fnamemod = ':t'
 '''
 
-
