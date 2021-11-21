@@ -11,6 +11,47 @@ build = './install --bin'
 merged = '0'
 
 [[plugins]]
+repo = '42og/stdheader.vim'
+
+[[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
+
+
+[[plugins]]
+repo = 'vim-syntastic/syntastic'
+hook_add = '''
+
+    " Enable normitte-vim (and gcc)
+    let g:syntastic_c_checkers = ['norminette', 'gcc']
+    let g:syntastic_aggregate_errors = 1
+
+    " Set the path to norminette (do no set if using norminette of 42 mac)
+    let g:norminette_exec = '/usr/bin/norminette'
+
+    " support headers (.h)
+    let g:c_syntax_for_h = 1
+    let g:syntastic_c_include_dirs = ['include', '../include', '../../include', 'libft', '../libft/include', '../../libft/include']
+
+    " pass custom arguments to norminette (this one ignores 42header)
+    let g:syntastic_c_norminette_args = '-r checktopcommentheader'
+
+
+    " check errors when opening a file (disable to speed up startup time)
+    "let g:syntastic_check_on_open = 1
+
+    " enable error list
+    let g:syntastic_always_populate_loc_list = 1
+
+    " automatically open error list
+    let g:syntastic_auto_loc_list = 1
+
+    " Skip check when closing
+    let g:syntastic_check_on_wq = 0
+
+'''
+[[plugins]]
+repo = 'alexandregv/norminette-vim'
+depends = 'syntastic'
+
 

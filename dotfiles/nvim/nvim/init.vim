@@ -1,5 +1,5 @@
 "init.vim
-
+language en_US.UTF-8
 " ------------------------------------------------------------
 "  key BIND
 " ------------------------------------------------------------
@@ -42,12 +42,12 @@ set showmatch          "closing parenthesis, show correspond one for a moment
 set smartcase
 set nobackup           "or you can set backupdir where backup files are saved
 " tab settings
-set shiftwidth=4       "num of spaces when auto indent
-set expandtab          "tab input is spaces
+"set shiftwidth=4       "num of spaces when auto indent
+"set expandtab          "tab input is spaces
 " unvalid characters settings
 set list
 set listchars=tab:>-,trail:.
-
+set guicursor+=n:ver10
 " ------------------------------------------------------------
 "  dein setting
 " ------------------------------------------------------------
