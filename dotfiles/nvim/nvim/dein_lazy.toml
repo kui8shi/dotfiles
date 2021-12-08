@@ -5,19 +5,40 @@ hook_add = '''
     nnoremap <silent><C-a> :NERDTreeFind<CR>:vertical res 20<CR>
 '''
 
+
+# ============================================fzf==============================================
 [[plugins]]
 repo = 'junegunn/fzf'
-build = './install --bin'
-merged = '0'
-
-[[plugins]]
-repo = '42og/stdheader.vim'
+"build = './install --bin'
+"merged = '0'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
+on_cmd = [
+    'Files',
+    'ProjectFiles',
+    'Buffers',
+    'BLines',
+    'History',
+    'Tags',
+    'BTags',
+    'GFiles',
+    'Ag',
+]
+hook_add = '''
+if executable('ag')
+  nnoremap <silent> ,a :<C-u>Ag<CR>
+endif
+nnoremap <silent> ,f :<C-u>Files<CR>
+nnoremap <silent> ,b :<C-u>Buffers<CR>
+nnoremap <silent> ,m :<C-u>History<CR>
+set rtp+=$XDG_CACHE_HOME/fzf
+" set rtp+=~/.fzf
+'''
 
 
+# ============================================syntastic==============================================
 [[plugins]]
 repo = 'vim-syntastic/syntastic'
 hook_add = '''
@@ -50,8 +71,3 @@ hook_add = '''
     let g:syntastic_check_on_wq = 0
 
 '''
-[[plugins]]
-repo = 'alexandregv/norminette-vim'
-depends = 'syntastic'
-
-

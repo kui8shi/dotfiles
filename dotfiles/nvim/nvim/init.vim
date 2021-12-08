@@ -42,8 +42,8 @@ set showmatch          "closing parenthesis, show correspond one for a moment
 set smartcase
 set nobackup           "or you can set backupdir where backup files are saved
 " tab settings
-"set shiftwidth=4       "num of spaces when auto indent
-"set expandtab          "tab input is spaces
+set shiftwidth=4       "num of spaces when auto indent
+set expandtab          "tab input is spaces
 " unvalid characters settings
 set list
 set listchars=tab:>-,trail:.
@@ -58,7 +58,7 @@ let s:dein_home_dir  = expand('$XDG_CACHE_HOME/dein')
 let s:dein_repo_dir  = expand('$XDG_CACHE_HOME/dein/repos/github.com/Shougo/dein.vim')
 let s:toml_file      = expand('$XDG_CONFIG_HOME/nvim/dein.toml')
 let s:toml_lazy      = expand('$XDG_CONFIG_HOME/nvim/dein_lazy.toml')
-
+"let g:dein#auto_recache = 1
 
 "         if not there is dein.vim, then git clone
 if !isdirectory(s:dein_repo_dir)
