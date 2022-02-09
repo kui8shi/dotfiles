@@ -6,3 +6,9 @@ nvim/nvim               ${HOME}/.config/nvim
 # zsh
 zsh/.zsh.d              ${HOME}/.zsh.d
 zsh/.zshrc              ${HOME}/.zshrc
+
+# xinit
+xinit/.xinitrc          ${HOME}/.xinitrc
+
+# xmodmap
+xmodmap/.xmodmap        ${HOME}/.xmodmap
