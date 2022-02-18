@@ -48,6 +48,12 @@ set expandtab          "tab input is spaces
 set list
 set listchars=tab:>-,trail:.
 set guicursor+=n:ver10
+" persistent undo
+if has("persistent_undo")
+    set undodir=~/.undodir
+    set undofile
+endif
+
 " ------------------------------------------------------------
 "  dein setting
 " ------------------------------------------------------------

@@ -1,2 +1,2 @@
 # zsh
-dotfiles/zsh/.zsh.d/10-path.zsh
+dotfiles/zsh/.zsh.d/init/10-path.zsh
