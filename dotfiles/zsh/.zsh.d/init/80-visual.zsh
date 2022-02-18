@@ -21,7 +21,7 @@ fi
 
 PROMPT_PATH="%(5~,.../%3~,%~)"
 
-PROMPT_STRING="${PROMPT_USER}@${PROMPT_PATH_COLOR}%m:${PROMPT_PATH}%f"
+PROMPT_STRING="${PROMPT_USER}@${PROMPT_PATH_COLOR}%M:${PROMPT_PATH}%f"
 
 function zle-line-init zle-keymap-select {
     case $KEYMAP in
