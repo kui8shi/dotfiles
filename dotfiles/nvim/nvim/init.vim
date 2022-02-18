@@ -1,5 +1,5 @@
 "init.vim
-language en_US.UTF-8
+
 " ------------------------------------------------------------
 "  key BIND
 " ------------------------------------------------------------
@@ -30,6 +30,10 @@ inoremap <C-j> <Down>
 set encoding=utf-8
 scriptencoding utf-8
 " editor settings
+if has('persistent_undo')
+    set undodir=~/.cache/undo
+    set undofile
+endif
 set number             "show line numbers
 set autoindent         "auto indent when newline
 set smartindent
@@ -47,13 +51,13 @@ set expandtab          "tab input is spaces
 " unvalid characters settings
 set list
 set listchars=tab:>-,trail:.
-set guicursor+=n:ver10
 " persistent undo
 if has("persistent_undo")
     set undodir=~/.undodir
     set undofile
 endif
 
+set guicursor+=n:ver10
 " ------------------------------------------------------------
 "  dein setting
 " ------------------------------------------------------------
@@ -64,7 +68,7 @@ let s:dein_home_dir  = expand('$XDG_CACHE_HOME/dein')
 let s:dein_repo_dir  = expand('$XDG_CACHE_HOME/dein/repos/github.com/Shougo/dein.vim')
 let s:toml_file      = expand('$XDG_CONFIG_HOME/nvim/dein.toml')
 let s:toml_lazy      = expand('$XDG_CONFIG_HOME/nvim/dein_lazy.toml')
-"let g:dein#auto_recache = 1
+
 
 "         if not there is dein.vim, then git clone
 if !isdirectory(s:dein_repo_dir)
