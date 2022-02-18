@@ -1,5 +1,5 @@
 "init.vim
-
+language en_US.UTF-8
 " ------------------------------------------------------------
 "  key BIND
 " ------------------------------------------------------------
@@ -51,6 +51,7 @@ set expandtab          "tab input is spaces
 " unvalid characters settings
 set list
 set listchars=tab:>-,trail:.
+<<<<<<< HEAD
 " persistent undo
 if has("persistent_undo")
     set undodir=~/.undodir
@@ -58,6 +59,11 @@ if has("persistent_undo")
 endif
 
 set guicursor+=n:ver10
+||||||| 84a6554
+set guicursor+=n:ver10
+=======
+
+>>>>>>> 91c653499d39008c15dcaf3d1431098b57f4f4a7
 " ------------------------------------------------------------
 "  dein setting
 " ------------------------------------------------------------
