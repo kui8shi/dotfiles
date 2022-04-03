@@ -57,7 +57,7 @@ if has("persistent_undo")
     set undofile
 endif
 
-set guicursor+=n:ver10
+"set guicursor+=n:ver10
 
 " ------------------------------------------------------------
 "  dein setting
