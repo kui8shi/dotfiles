@@ -5,7 +5,7 @@ dotfiles_root=$(cd $(dirname $0)/.. && pwd)
 . ${dotfiles_root}/scripts/common.sh
 
 # remove symbolic links
-cd ${dotfiles_root}/dotfiles
+cd ${dotfiles_root}/linklists
 for linklist in "linklist.Unix.txt" "linklist.$(uname).txt"; do
     [ ! -r "${linklist}" ] && continue
 

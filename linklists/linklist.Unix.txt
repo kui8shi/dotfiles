@@ -1,0 +1,5 @@
+# xinit
+xinit/.xinitrc          ${HOME}/.xinitrc
+
+# xmodmap
+xmodmap/.xmodmap        ${HOME}/.xmodmap

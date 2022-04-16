@@ -1,0 +1,43 @@
+# ============================================fzf==============================================
+[[plugins]]
+repo = 'junegunn/fzf'
+"build = './install --bin'
+"merged = '0'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+on_cmd = [
+    'Files',
+    'ProjectFiles',
+    'Buffers',
+    'BLines',
+    'History',
+    'Tags',
+    'BTags',
+    'GFiles',
+    'Ag',
+]
+hook_add = '''
+if executable('ag')
+  nnoremap <silent> ,a :<C-u>Ag<CR>
+endif
+nnoremap <silent> ,f :<C-u>ProjectFiles<CR>
+nnoremap <silent> ,b :<C-u>Buffers<CR>
+nnoremap <silent> ,m :<C-u>History<CR>
+set rtp+=$XDG_CACHE_HOME/fzf
+" set rtp+=~/.fzf
+'''
+hook_source = '''
+source plugs/fzf.vim
+'''
+
+# ==============================================coc==================================================
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+on_i = 1
+merged = '0'
+hook_source = """
+source plugs/coc.vim
+"""
