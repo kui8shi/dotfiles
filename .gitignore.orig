@@ -1,9 +1,0 @@
-# zsh
-<<<<<<< HEAD
-dotfiles/zsh/.zsh.d/init/10-path.zsh
-||||||| 84a6554
-dotfiles/zsh/.zsh.d/10-path.zsh
-=======
-10-path.zsh
-.netrwhist
->>>>>>> 91c653499d39008c15dcaf3d1431098b57f4f4a7
