@@ -20,10 +20,3 @@ hook_add = '''
     let g:airline#extensions#tabline#fnamemod = ':t'
 '''
 
-[[plugins]]
-repo = 'preservim/nerdtree'
-hook_add = '''
-    let NERDTreeShowHidden = 1
-    nnoremap <silent><C-n> :NERDTreeToggle<CR>:vertical res 25<CR>
-'''
-

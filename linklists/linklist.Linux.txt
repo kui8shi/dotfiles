@@ -3,3 +3,16 @@
 #vscode/Code/User/keybindings.json   ${HOME}/.config/Code/User/keybindings.json
 #vscode/Code/User/locale.json        ${HOME}/.config/Code/User/locale.json
 #vscode/Code/User/snippets           ${HOME}/.config/Code/User/snippets
+
+# tmux
+tmux/.tmux.conf         ${HOME}/.tmux.conf
+
+# nvim
+nvim                    ${HOME}/.config/nvim
+
+# vim
+vim/.vimrc              ${HOME}/.vimrc
+
+# zsh
+zsh                     ${HOME}/.shell.d/zsh
+zsh/.zshrc              ${HOME}/.zshrc
