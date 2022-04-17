@@ -1,3 +1,12 @@
+# ============================================markdown-preview==============================================
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'sh -c "cd app && yarn install'
+hook_source = '''
+source ./plugs/markdown-preview.vim
+'''
+
 # ============================================fzf==============================================
 [[plugins]]
 repo = 'junegunn/fzf'
