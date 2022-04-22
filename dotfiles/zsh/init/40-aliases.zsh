@@ -8,14 +8,15 @@ alias t="tmux"
 
 if command -v nvim &> /dev/null ; then
     alias n="nvim"
-    editor="nvim"
+    local editor="nvim"
 elif command -v vim &> /dev/null ; then
     alias v="vim"
-    editor="vim"
+    local editor="vim"
 else
     exit
 fi
 
-alias vimconfig="${editor} ~/.config/${editor}"
-alias shellconfig="${editor} ~/.shell.d/$(basename ${SHELL}); source ~/.zshrc"
+local shell=$(basename ${SHELL})
+alias ${editor}config="${editor} ~/.config/${editor}"
+alias ${shell}config="${editor} ~/.shell.d/${shell}/init; source ~/.${shell}rc"
 alias tmuxconfig="${editor} ~/.tmux.conf; tmux source-file ~/.tmux.conf"

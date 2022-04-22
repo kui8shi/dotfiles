@@ -29,7 +29,7 @@ set rtp+=$XDG_CACHE_HOME/fzf
 " set rtp+=~/.fzf
 '''
 hook_source = '''
-source plugs/fzf.vim
+source $XDG_CONFIG_HOME/nvim/plugs/fzf.vim
 '''
 
 # ==============================================coc==================================================
@@ -39,5 +39,5 @@ rev = 'release'
 on_i = 1
 merged = '0'
 hook_source = """
-source plugs/coc.vim
+source $XDG_CONFIG_HOME/nvim/plugs/coc.vim
 """
