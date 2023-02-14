@@ -1,17 +1,16 @@
 {
+    "languageserver": {
+    },
+    "python.jediEnabled": false,
+    // coc settings
+    "coc.preferences.formatOnSaveFiletypes":[
+        "cpp",
+        "rust"
+    ],
+    "coc.preferences.formatOnType": true,
+
+    //suggest
     "suggest.noselect": true,
     "suggest.preferCompleteThanJumpPlaceholder": true,
-    "languageserver": {
-        "ccls": {
-        "command": "ccls",
-        "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
-        "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
-        "initializationOptions": {
-            "cache": {
-              "directory": "/tmp/ccls-cache"
-            }
-          }
-        }
-    },
-    "python.jediEnabled": false
+    "suggest.detailMaxLength": 30,
 }
