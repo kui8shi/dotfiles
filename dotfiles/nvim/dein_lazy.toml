@@ -41,12 +41,3 @@ hook_source = '''
 source $XDG_CONFIG_HOME/nvim/plugs/fzf.vim
 '''
 
-# ==============================================coc==================================================
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-rev = 'release'
-on_i = 1
-merged = '0'
-hook_source = """
-source $XDG_CONFIG_HOME/nvim/plugs/coc.vim
-"""

@@ -17,6 +17,7 @@ if &compatible
   set nocompatible
 endif
 
+"
 "         load plugins and cache them
 if dein#load_state(s:dein_home_dir)
   call dein#begin(s:dein_home_dir)
