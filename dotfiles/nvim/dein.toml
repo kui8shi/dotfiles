@@ -32,3 +32,4 @@ hook_add = """
     source $XDG_CONFIG_HOME/nvim/plugs/coc.vim
     source $XDG_CONFIG_HOME/nvim/plugs/coc-extension.vim
 """
+

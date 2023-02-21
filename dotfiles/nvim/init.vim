@@ -18,8 +18,8 @@ inoremap <C-l> <Right>
 inoremap <C-k> <Up>
 inoremap <C-j> <Down>
 "nnoremap <C-h> :<C-u>help<space>
-nnoremap <C-h> :bp<Cr>
-nnoremap <C-l> :bn<Cr>
+nnoremap <C-h> :bprev<Cr>
+nnoremap <C-l> :bnext<Cr>
 " ------------------------------------------------------------
 " editor setting
 " ------------------------------------------------------------
@@ -59,6 +59,10 @@ set nobackup           "or you can set backupdir where backup files are saved
 " tab settings
 set shiftwidth=4       "num of spaces when auto indent
 set expandtab          "tab input is spaces
+" folding settings
+set foldmethod=syntax
+set foldlevel=8
+set foldcolumn=1
 " unvalid characters settings
 set list
 set listchars=tab:>-,trail:.
@@ -68,6 +72,28 @@ source $XDG_CONFIG_HOME/nvim/completion.vim
 
 "load dein settings
 source $XDG_CONFIG_HOME/nvim/dein.vim
+
+
+" ------------------------------------------------------------
+" functionalities
+" ------------------------------------------------------------
+function! s:ShowMaps()
+  let old_reg = getreg("a")          " save the current content of register a
+  let old_reg_type = getregtype("a") " save the type of the register as well
+try
+  redir @a                           " redirect output to register a
+  " Get the list of all key mappings silently, satisfy "Press ENTER to continue"
+  silent map | call feedkeys("\<CR>")    
+  redir END                          " end output redirection
+  vnew                               " new buffer in vertical window
+  put a                              " put content of register
+  " Sort on 4th character column which is the key(s)
+  %!sort -k1.4,1.4
+finally                              " Execute even if exception is raised
+  call setreg("a", old_reg, old_reg_type) " restore register a
+endtry
+endfunction
+com! ShowMaps call s:ShowMaps()      " Enable :ShowMaps to call the function
 
 " ------------------------------------------------------------
 " visual

@@ -41,3 +41,11 @@ hook_source = '''
 source $XDG_CONFIG_HOME/nvim/plugs/fzf.vim
 '''
 
+# ============================================VCoolor==============================================
+[[plugins]]
+repo = 'KabbAmine/VCoolor.vim'
+
+# ============================================vim-css-color==============================================
+[[plugins]]
+repo = 'ap/vim-css-color'
+on_ft = ['css', 'tsx']

@@ -5,12 +5,3 @@ fi
 for file in "${HOME}"/.shell.d/zsh/init/*.zsh; do
     . "$file"
 done
-
-# only load zplug when in Tmux
-if [[ -n "$TMUX" ]]; then
-    . "${HOME}"/.zsh/zplug.zsh
-fi
-
-#if has tmux; then
-#    tmuxx
-#fi
