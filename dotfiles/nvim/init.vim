@@ -19,17 +19,14 @@ inoremap <C-k> <Up>
 inoremap <C-j> <Down>
 inoremap <C-u> <C-o>u
 "nnoremap <C-h> :<C-u>help<space>
-<<<<<<< HEAD
 nnoremap<silent>  <C-h> :bprev<Cr>
 nnoremap<silent>  <C-l> :bnext<Cr>
 nnoremap <silent> <C-n> :nohl<Cr>
-=======
 nnoremap <C-h> :bprev<Cr>
 nnoremap <C-l> :bnext<Cr>
 nnoremap <C-q> :bdelete!<Cr>
 nnoremap j gj
 nnoremap k gk
->>>>>>> x1
 " ------------------------------------------------------------
 " editor setting
 " ------------------------------------------------------------
@@ -67,10 +64,6 @@ set showmatch          "closing parenthesis, show correspond one for a moment
 set smartcase
 set nobackup           "or you can set backupdir where backup files are saved
 " tab settings
-<<<<<<< HEAD
-=======
-set tabstop=2          "incert spaces for a tab
->>>>>>> x1
 set shiftwidth=2       "num of spaces when auto indent
 set expandtab          "tab input is spaces
 " folding settings
@@ -81,13 +74,8 @@ set foldlevel=8
 set list
 set listchars=tab:>-,trail:.
 
-<<<<<<< HEAD
-"load function settings
-source $XDG_CONFIG_HOME/nvim/function.vim
-=======
 "load completion settings
 "source $XDG_CONFIG_HOME/nvim/completion.vim
->>>>>>> x1
 
 "load dein settings
 source $XDG_CONFIG_HOME/nvim/dein.vim
