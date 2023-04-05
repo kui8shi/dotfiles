@@ -25,11 +25,11 @@ on_cmd = [
     'Tags',
     'BTags',
     'GFiles',
-    'Ag',
+    'Rg',
 ]
 hook_add = '''
-if executable('ag')
-  nnoremap <silent> ,a :<C-u>Ag<CR>
+if executable('rg')
+  nnoremap <silent> ,a :<C-u>Rg<CR>
 endif
 nnoremap <silent> ,f :<C-u>ProjectFiles<CR>
 nnoremap <silent> ,b :<C-u>Buffers<CR>

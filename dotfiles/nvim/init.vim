@@ -17,9 +17,11 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 inoremap <C-k> <Up>
 inoremap <C-j> <Down>
+inoremap <C-u> <C-o>u
 "nnoremap <C-h> :<C-u>help<space>
-nnoremap <C-h> :bprev<Cr>
-nnoremap <C-l> :bnext<Cr>
+nnoremap<silent>  <C-h> :bprev<Cr>
+nnoremap<silent>  <C-l> :bnext<Cr>
+nnoremap <silent> <C-n> :nohl<Cr>
 " ------------------------------------------------------------
 " editor setting
 " ------------------------------------------------------------
@@ -57,18 +59,18 @@ set showmatch          "closing parenthesis, show correspond one for a moment
 set smartcase
 set nobackup           "or you can set backupdir where backup files are saved
 " tab settings
-set shiftwidth=4       "num of spaces when auto indent
+set shiftwidth=2       "num of spaces when auto indent
 set expandtab          "tab input is spaces
 " folding settings
 set foldmethod=syntax
 set foldlevel=8
-set foldcolumn=1
+"set foldcolumn=0
 " unvalid characters settings
 set list
 set listchars=tab:>-,trail:.
 
-"load completion settings
-source $XDG_CONFIG_HOME/nvim/completion.vim
+"load function settings
+source $XDG_CONFIG_HOME/nvim/function.vim
 
 "load dein settings
 source $XDG_CONFIG_HOME/nvim/dein.vim
@@ -102,7 +104,7 @@ set pumheight=10
 set termguicolors
 set cursorline
 colorscheme iceberg
-
+hi Search ctermbg=232
 
 filetype plugin indent on
-syntax enable
+"syntax enable
