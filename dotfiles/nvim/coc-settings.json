@@ -4,6 +4,7 @@
     "python.jediEnabled": false,
     // coc settings
     "coc.preferences.formatOnSaveFiletypes":[
+        "c",
         "cpp",
         "rust"
     ],
@@ -13,4 +14,15 @@
     "suggest.noselect": true,
     "suggest.preferCompleteThanJumpPlaceholder": true,
     "suggest.detailMaxLength": 30,
+    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.6/clangd_15.0.6/bin/clangd",
+    {
+      // coc-jedi
+       "jedi.enable": true,
+       "jedi.startupMessage": true,
+       "jedi.markupKindPreferred": "plaintext",
+       "jedi.trace.server": "off",
+       "jedi.jediSettings.autoImportModules": [],
+       "jedi.jediSettings.caseInsensitiveCompletion": true,
+       "jedi.jediSettings.debug": true
+    }
 }
