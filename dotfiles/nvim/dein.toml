@@ -22,12 +22,6 @@ hook_add = '''
 #colorscheme
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
-#syntax highlighting
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-hook_add = """
-    source $XDG_CONFIG_HOME/nvim/plugs/tree-sitter.lua
-"""
 
 #color fold
 [[plugins]]
