@@ -22,9 +22,9 @@ inoremap <C-u> <C-o>u
 nnoremap<silent>  <C-h> :bprev<Cr>
 nnoremap<silent>  <C-l> :bnext<Cr>
 nnoremap <silent> <C-n> :nohl<Cr>
-nnoremap <C-h> :bprev<Cr>
-nnoremap <C-l> :bnext<Cr>
-nnoremap <C-q> :bdelete!<Cr>
+nnoremap <silent> <C-h> :bprev<Cr>
+nnoremap <silent> <C-l> :bnext<Cr>
+nnoremap <silent> <C-q> :bdelete!<Cr>
 nnoremap j gj
 nnoremap k gk
 " ------------------------------------------------------------
