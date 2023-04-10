@@ -34,6 +34,7 @@ hook_add = """
 repo = 'kevinhwang91/promise-async'
 [[plugins]]
 repo = 'kevinhwang91/nvim-ufo'
+depends = 'promise-async'
 hook_add = '''
     source $XDG_CONFIG_HOME/nvim/plugs/nvim-ufo.lua
 '''
@@ -49,3 +50,6 @@ hook_add = """
     source $XDG_CONFIG_HOME/nvim/plugs/coc-extensions.vim
 """
 
+## git-conflict.nvim
+[[plugins]]
+repo = 'rhysd/conflict-marker.vim'
