@@ -40,6 +40,13 @@ set rtp+=$XDG_CACHE_HOME/fzf
 hook_source = '''
 source $XDG_CONFIG_HOME/nvim/plugs/fzf.vim
 '''
+# =====================================nvim-treesitter======================================
+#syntax highlighting
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_add = """
+    source $XDG_CONFIG_HOME/nvim/plugs/tree-sitter.lua
+"""
 
 # ============================================VCoolor==============================================
 [[plugins]]
