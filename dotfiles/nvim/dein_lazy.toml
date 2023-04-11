@@ -4,7 +4,7 @@ repo = 'iamcco/markdown-preview.nvim'
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
 build = 'sh -c "cd app && yarn install'
 hook_source = '''
-source ./plugs/markdown-preview.vim
+source $XDG_CONFIG_HOME/nvim/plugs/markdown-preview.vim
 '''
 
 # ============================================fzf==============================================
