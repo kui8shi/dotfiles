@@ -5,6 +5,7 @@ alias c="cd"
 alias chx="chmod a+x"
 alias gdb="gdb -q"
 alias t="tmux"
+alias date="date -R"
 
 if command -v nvim &> /dev/null ; then
     alias n="nvim"
