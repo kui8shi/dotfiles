@@ -1,3 +1,8 @@
+" key bindings
+nmap <C-s> <Plug>MarkdownPreview
+nmap <M-s> <Plug>MarkdownPreviewStop
+nmap <C-p> <Plug>MarkdownPreviewToggle
+
 " set to 1, nvim will open the preview window after entering the markdown buffer
 " default: 0
 let g:mkdp_auto_start = 0
@@ -30,17 +35,23 @@ let g:mkdp_open_to_the_world = 0
 let g:mkdp_open_ip = ''
 
 " specify browser to open preview page
+" for path with space
+" valid: `/path/with\ space/xxx`
+" invalid: `/path/with\\ space/xxx`
 " default: ''
-let g:mkdp_browser = ''
+let g:mkdp_browser = '/usr/bin/google-chrome-stable'
 
 " set to 1, echo preview page url in command line when open preview page
 " default is 0
-let g:mkdp_echo_preview_url = 0
+let g:mkdp_echo_preview_url = 1
 
 " a custom vim function name to open preview page
 " this function will receive url as param
 " default is empty
-let g:mkdp_browserfunc = ''
+function OpenMarkdownPreview (url)
+  execute "!google-chrome-stable " . a:url
+endfunction
+let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 
 " options for markdown render
 " mkit: markdown-it options for render
@@ -67,7 +78,8 @@ let g:mkdp_preview_options = {
     \ 'sequence_diagrams': {},
     \ 'flowchart_diagrams': {},
     \ 'content_editable': v:false,
-    \ 'disable_filename': 0
+    \ 'disable_filename': 0,
+    \ 'toc': {}
     \ }
 
 " use a custom markdown style must be absolute path
@@ -78,7 +90,7 @@ let g:mkdp_markdown_css = ''
 " like '/Users/username/highlight.css' or expand('~/highlight.css')
 let g:mkdp_highlight_css = ''
 
-" use a custom port to start server or random for empty
+" use a custom port to start server or empty for random
 let g:mkdp_port = ''
 
 " preview page title
@@ -88,3 +100,7 @@ let g:mkdp_page_title = '「${name}」'
 " recognized filetypes
 " these filetypes will have MarkdownPreview... commands
 let g:mkdp_filetypes = ['markdown']
+
+" set default theme (dark or light)
+" By default the theme is define according to the preferences of the system
+let g:mkdp_theme = ''

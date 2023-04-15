@@ -13,13 +13,17 @@ noremap <Space>w :<C-u>w<CR>
 noremap  :<C-u>call append(expand('.'), '')<CR>j
 
 " Insert Mode
-inoremap <silent> jj <ESC>:<C-u>w<CR>
+inoremap <silent> jj <Esc>
 " Insert Mode movekey bind
 inoremap <C-d> <BS>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 inoremap <C-k> <Up>
 inoremap <C-j> <Down>
+inoremap <C-u> <C-o>u
+nnoremap <silent> <C-n> :nohl<Cr>
+nnoremap j gj
+nnoremap k gk
 
 " ------------------------------------------------------------
 " editor setting

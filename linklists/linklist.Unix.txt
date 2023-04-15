@@ -1,2 +1,4 @@
 # xmodmap
-xmodmap/.xmodmap        ${HOME}/.xmodmap
+#xmodmap/.xmodmap        ${HOME}/.xmodmap
+# xkb
+xkb/.xkb                 ${HOME}/.xkb
