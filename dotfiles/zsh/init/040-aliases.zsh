@@ -21,3 +21,8 @@ local shell=$(basename ${SHELL})
 alias ${editor}config="${editor} ~/.config/${editor}"
 alias ${shell}config="${editor} ~/.shell.d/${shell}/init; source ~/.${shell}rc"
 alias tmuxconfig="${editor} ~/.tmux.conf; tmux source-file ~/.tmux.conf"
+
+if type trash-put &> /dev/null
+then
+    alias rm=trash-put
+fi
