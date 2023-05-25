@@ -1,0 +1,47 @@
+{
+  "languageserver": {
+    "csharp": {
+      "command": "csharp-ls",
+      "rootPatterns": [
+        "*.sln",
+        "git"
+      ],
+      "filetypes": [
+        "cs",
+        "csharp"
+      ]
+    },
+    /*
+    "ocaml-lsp": {
+      "command": "opam",
+      "args": [
+        "exec",
+        "--",
+        "ocamllsp"
+      ],
+      "filetypes": [
+        "ocaml",
+        "reason"
+      ]
+    }
+    */
+  },
+  // coc settings
+  "coc.preferences.formatOnSave": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "c",
+    "cpp",
+    "rust",
+    "json"
+  ],
+  "coc.preferences.formatOnType": true,
+  //suggest
+  "suggest.preferCompleteThanJumpPlaceholder": true,
+  // coc-jedi
+  "jedi.enable": true,
+  "jedi.startupMessage": true,
+  "jedi.trace.server": "off",
+  "jedi.jediSettings.autoImportModules": [],
+  "jedi.jediSettings.caseInsensitiveCompletion": true,
+  "snippets.ultisnips.pythonPrompt": false
+}

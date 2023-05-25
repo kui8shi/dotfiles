@@ -1,0 +1,22 @@
+[alias]
+	st = status -sb
+	c = commit
+        ll = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[color]
+	ui = auto
+[user]
+	name = ez2take
+	email = gbiifvrc517@gmail.com
+[github]
+	user = ez2atke
+[core]
+	autocrlf = input
+	pager=less -q -R 
+	excludesfile = ~/.gitignore
+[merge]
+	tool = vimdiff
+#[push]
+#	default = simple
+[hub]
+    user = ez2take
+    protocol = git

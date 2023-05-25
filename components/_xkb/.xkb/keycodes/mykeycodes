@@ -1,0 +1,3 @@
+xkb_keycodes "mycodes" {
+    <NFER> =   102;             // Muhenkan
+};
