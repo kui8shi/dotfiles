@@ -1,0 +1,6 @@
+xkb_symbols "swapkeys" {
+  replace key <NFER> { [ Control_L ] };
+  modifier_map Control { <NFER> };
+
+  replace key <XFER> { [ Return ] };
+};

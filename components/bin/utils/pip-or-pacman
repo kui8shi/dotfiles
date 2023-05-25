@@ -1,0 +1,1 @@
+for i in `pip list | tail -n +3 | awk '{print $1}'`; do pacman -Qs $i ; done

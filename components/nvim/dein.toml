@@ -1,0 +1,43 @@
+##Plugin manager
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+##Asynchronous execution library
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+##Visual
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+depends = 'vim-airline'
+hook_add = '''
+    let g:airline_theme = 'iceberg'
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#buffer_idx_mode = 1
+    let g:airline#extensions#tabline#fnamemod = ':t'
+'''
+#colorscheme
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+
+##Completion
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+on_i = 1
+merged = '0'
+hook_add = """
+    source $XDG_CONFIG_HOME/nvim/plugs/coc.vim
+    source $XDG_CONFIG_HOME/nvim/plugs/coc-extensions.vim
+"""
+
+## git-conflict.nvim
+[[plugins]]
+repo = 'rhysd/conflict-marker.vim'
+
+## LSP
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
