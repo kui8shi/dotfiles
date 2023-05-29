@@ -36,9 +36,13 @@ return packer.startup(function(use)
   -- Colorschemes
   use { "cocopon/iceberg.vim" } -- Color scheme
 
-  use { "nvim-lualine/lualine.nvim" } -- Statusline
-  use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
-  use { "akinsho/bufferline.nvim" }
+  -- status line
+  use { "nvim-lualine/lualine.nvim", 
+        run = require("lualine").setup()} -- Statusline
+  use { "windwp/nvim-autopairs" ,
+        run = require("nvim-autopairs").setup()} -- Autopairs, integrates with both cmp and treesitter
+  use { "akinsho/bufferline.nvim" ,
+        run = require("bufferline").setup()}
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp" } -- The completion plugin
@@ -55,10 +59,11 @@ return packer.startup(function(use)
   use { "williamboman/mason.nvim" , { run = ":MasonUpdate" } } -- simple to use language server installer
   use { "williamboman/mason-lspconfig.nvim" } -- brith between mason and nvim-lspconfig
   use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
-  use { "glepnir/lspsaga.nvim" } -- LSP UIs
+  use { "glepnir/lspsaga.nvim" , { run = require("lspsaga").setup() }} -- LSP UIs
 
   -- Formatter
-  use { "MunifTanjim/prettier.nvim" }
+  use { "MunifTanjim/prettier.nvim",
+        run = require("prettier").setup() }
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim" }

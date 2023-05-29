@@ -24,7 +24,7 @@ require("telescope").setup {
     file_browser = {
       hijack_netrw = true,
       initial_mode = "normal",
-      auto_depth = 4,
+      auto_depth = 8,
     }
   }
 }

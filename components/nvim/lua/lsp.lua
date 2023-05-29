@@ -11,6 +11,8 @@ map("n", "ge", "<cmd>Telescope diagnostics<CR>")
 map("n", "gn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 map("n", "g]", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 map("n", "g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+-- Format on Save
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- LSP manager
 require("mason").setup {

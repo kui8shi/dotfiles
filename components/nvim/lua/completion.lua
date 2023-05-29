@@ -16,6 +16,7 @@ cmp.setup {
     ['<C-l>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping.confirm { select = true },
+    ["<Tab>"] = cmp.mapping.confirm { select = true },
   }),
   experimental = {
     ghost_text = true,
