@@ -72,6 +72,12 @@ return packer.startup(function(use)
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } }
 
+  -- Explorer
+  use { "nvim-tree/nvim-tree.lua", run = {
+    require("nvim-tree").setup(),
+    map("n", "<Leader>e", ":NvimTreeFindFileToggle<CR>")
+  } }
+
   -- Others
   use { "notjedi/nvim-rooter.lua", 
       config = function() require 'nvim-rooter'.setup() end }
