@@ -41,17 +41,11 @@ alias vi='vim'
 alias wifi='nmtui'
 alias pm-suspend='sudo pm-suspend'
 
-alias ta='tmux_ornot'
-alias pdb='python /usr/lib/python2.7/pdb.py'
-alias ocaml='rlwrap ocaml'
+alias t='tmux'
+alias pdb='python /usr/lib/python3.10/pdb.py'
 
-alias sudovim='sudoedit'
 alias chx="chmod a+x"
-alias mitmproxy-p9999='mitmproxy -p 9999'
-alias simplehttpserver='python -m http.server'
-alias cgihttpserver='python -m http.server --cgi'
 
-alias gcal='gcalcli agenda --color_owner=green --color_date=white'
 alias unzip-cp932='unzip -O cp932'
 
 if (type nvim &> /dev/null);then
