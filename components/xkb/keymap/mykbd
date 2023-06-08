@@ -1,0 +1,10 @@
+xkb_keymap {
+	xkb_keycodes  { include "evdev+aliases(qwerty)"	};
+	xkb_types     { include "complete"	};
+	xkb_compat    { include "complete+japan+ledscroll(group_lock)"	};
+	xkb_symbols   { include "pc+jp+inet(evdev)"
+                        replace key <MUHE> { [ Control_L ] };
+                        modifier_map Control { <MUHE> };
+        };
+	xkb_geometry  { include "pc(pc105)"	};
+};
