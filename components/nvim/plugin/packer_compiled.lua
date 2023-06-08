@@ -150,6 +150,11 @@ _G.packer_plugins = {
     path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/nvim-rooter.lua",
     url = "https://github.com/notjedi/nvim-rooter.lua"
   },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
