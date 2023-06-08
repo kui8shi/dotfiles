@@ -1009,77 +1009,6 @@
 
 #: }}}
 
-#: Color scheme {{{
-
-# --- ~/.Xresources ------------------------------------------------------------
-# ------------------------------------------------------------------------------
-# --- generated with 4bit Terminal Color Scheme Designer -----------------------
-# ------------------------------------------------------------------------------
-# --- http://ciembor.github.io/4bit --------------------------------------------
-# ------------------------------------------------------------------------------
-
-# --- special colors ---
-
-*background: #ffffff
-*foreground: #7f9ec4
-
-#: The color table {{{
-# --- standard colors ---
-
-# black
-color0: #242424
-
-# bright_black
-color8: #444444
-
-# red
-color1: #db8e6a
-
-# bright_red
-color9: #ecc3b0
-
-# green
-color2: #6adb8e
-
-# bright_green
-color10: #b0ecc3
-
-# yellow
-color3: #b7db6a
-
-# bright_yellow
-color11: #d9ecb0
-
-# blue
-color4: #8e6adb
-
-# bright_blue
-color12: #c3b0ec
-
-# magenta
-color5: #db6ab7
-
-# bright_magenta
-color13: #ecb0d9
-
-# cyan
-color6: #6ab7db
-
-# bright_cyan
-color14: #b0d9ec
-
-# white
-color7: #bababa
-
-# bright_white
-color15: #ffffff
-
-#: }}}
-
-# ------------------------------------------------------------------------------
-# --- end of terminal colors section -------------------------------------------
-# ------------------------------------------------------------------------------
-
 background_opacity 1.0
 
 #: The opacity of the background. A number between zero and one, where
@@ -2349,3 +2278,9 @@ background_opacity 1.0
 #: }}}
 
 #: }}}
+
+
+# BEGIN_KITTY_THEME
+# GitHub Dark
+include current-theme.conf
+# END_KITTY_THEME
