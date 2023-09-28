@@ -12,7 +12,7 @@
 [core]
 	autocrlf = input
 	pager=less -q -R 
-	excludesfile = ~/.gitignore
+	excludesfile = /home/ez2take/.gitignore
 [merge]
 	tool = vimdiff
 #[push]
@@ -20,3 +20,6 @@
 [hub]
     user = ez2take
     protocol = git
+[safe]
+	directory = /home/ez2take/projects/rizin
+	directory = *

@@ -94,6 +94,12 @@ _G.packer_plugins = {
     path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["git-conflict.nvim"] = {
+    config = { "\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17git-conflict\frequire\0" },
+    loaded = true,
+    path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/git-conflict.nvim",
+    url = "https://github.com/akinsho/git-conflict.nvim"
+  },
   ["iceberg.vim"] = {
     loaded = true,
     path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/iceberg.vim",
@@ -103,11 +109,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
-  },
-  ["lspsaga.nvim"] = {
-    loaded = true,
-    path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
-    url = "https://github.com/glepnir/lspsaga.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -123,11 +124,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["null-ls.nvim"] = {
-    loaded = true,
-    path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
-    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -145,7 +141,6 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-rooter.lua"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16nvim-rooter\frequire\0" },
     loaded = true,
     path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/nvim-rooter.lua",
     url = "https://github.com/notjedi/nvim-rooter.lua"
@@ -160,6 +155,12 @@ _G.packer_plugins = {
     path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-web-devicons"] = {
+    config = { "\27LJ\2\ni\0\0\5\0\5\0\n6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\3€9\2\3\0015\4\4\0B\2\2\1K\0\1\0\1\0\2\vstrict\2\fdefault\2\nsetup\22nvim-web-devicons\frequire\npcall\0" },
+    loaded = true,
+    path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -169,11 +170,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["prettier.nvim"] = {
-    loaded = true,
-    path = "/home/ez2take/.local/share/nvim/site/pack/packer/start/prettier.nvim",
-    url = "https://github.com/MunifTanjim/prettier.nvim"
   },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
@@ -193,10 +189,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-rooter.lua
-time([[Config for nvim-rooter.lua]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16nvim-rooter\frequire\0", "config", "nvim-rooter.lua")
-time([[Config for nvim-rooter.lua]], false)
+-- Config for: nvim-web-devicons
+time([[Config for nvim-web-devicons]], true)
+try_loadstring("\27LJ\2\ni\0\0\5\0\5\0\n6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\3€9\2\3\0015\4\4\0B\2\2\1K\0\1\0\1\0\2\vstrict\2\fdefault\2\nsetup\22nvim-web-devicons\frequire\npcall\0", "config", "nvim-web-devicons")
+time([[Config for nvim-web-devicons]], false)
+-- Config for: git-conflict.nvim
+time([[Config for git-conflict.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
+time([[Config for git-conflict.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
