@@ -1,2 +1,5 @@
 .stignore
 build
+.clangd
+*.log
+log

@@ -1,23 +1,21 @@
 -- lsp.lua
 -- Target: "williamboman/mason.nvim"
-
+local util = require("utils")
 -- Key bindings
-map("n", "gr", "<cmd>Telescope lsp_references<CR>")
-map("n", "gd", "<cmd>Telescope lsp_definitions<CR>")
-map("n", "gD", "<cmd>Telescope lsp_declarations<CR>")
-map("n", "gi", "<cmd>Telescope lsp_implementations<CR>")
-map("n", "gy", "<cmd>Telescope lsp_type_definitions<CR>")
-map("n", "ge", "<cmd>Telescope diagnostics<CR>")
-map("n", "gn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-map("n", "g]", "<cmd>lua vim.diagnostic.goto_next()<CR>")
-map("n", "g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
--- Format on Save
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+util.map("n", "gr", "<cmd>Telescope lsp_references<CR>")
+util.map("n", "gd", "<cmd>Telescope lsp_definitions<CR>")
+util.map("n", "gD", "<cmd>Telescope lsp_declarations<CR>")
+util.map("n", "gi", "<cmd>Telescope lsp_implementations<CR>")
+util.map("n", "gy", "<cmd>Telescope lsp_type_definitions<CR>")
+util.map("n", "ge", "<cmd>Telescope diagnostics<CR>")
+util.map("n", "gn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+util.map("n", "g]", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+util.map("n", "g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 
 -- LSP manager
-require("mason").setup {
+require("mason").setup({
     -- The directory in which to install packages.
-    install_root_dir = vim.fn.stdpath("data") .. "mason" ,
+    install_root_dir = vim.fn.stdpath("data") .. "mason",
 
     -- Where Mason should put its bin location in your PATH. Can be one of:
     -- - "prepend" (default, Mason's bin location is put first in PATH)
@@ -119,18 +117,17 @@ require("mason").setup {
             apply_language_filter = "<C-f>",
         },
     },
-}
+})
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 require("mason-lspconfig").setup()
-require("mason-lspconfig").setup_handlers {
-  function (server_name) 
-    require("lspconfig")[server_name].setup {
-      capabilities = capabilities,
-    }
-  end,
-}
+require("mason-lspconfig").setup_handlers({
+    function(server_name)
+        require("lspconfig")[server_name].setup({
+            capabilities = capabilities,
+        })
+    end,
+})
 -- LSP handlers
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
-)
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false })
