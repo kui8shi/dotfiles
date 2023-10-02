@@ -71,14 +71,3 @@ refresh(){
   echo c
 }
 alias globalip='curl http://ipecho.net/plain'
-
-if (type pacman &>/dev/null && type pip &> /dev/null);then
-  function pip_check(){
-    if read -q "choice?Are you sure to install it without pacman? [yN]"; then
-      return 0
-    else
-      return 1
-    fi
-  }
-fi
-alias pip="pip_check&&pip"

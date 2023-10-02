@@ -39,9 +39,12 @@ packer.startup(function()
     use({ "cocopon/iceberg.vim" }) -- Color scheme
 
     -- Status Line
-    use({ "nvim-lualine/lualine.nvim", run = require("lualine").setup() }) -- Statusline
-    use({ "windwp/nvim-autopairs", run = require("nvim-autopairs").setup() }) -- Autopairs, integrates with both cmp and treesitter
-    use({ "akinsho/bufferline.nvim", run = require("bufferline").setup() })
+    use({ "nvim-lualine/lualine.nvim", 
+      run = util.safe_require("lualine",{}) }) -- Statusline
+    use({ "windwp/nvim-autopairs", 
+      run = util.safe_require("nvim-autopairs",{}) }) -- Autopairs, integrates with both cmp and treesitter
+    use({ "akinsho/bufferline.nvim", 
+      run = util.safe_require("bufferline",{}) })
 
     -- Completion Plugins
     use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -74,7 +77,7 @@ packer.startup(function()
     use({
         "nvim-tree/nvim-tree.lua",
         run = {
-            require("nvim-tree").setup(),
+            util.safe_require("nvim-tree",{}),
             util.map("n", "<Leader>e", ":NvimTreeFindFileToggle<CR>"),
         },
     })
@@ -82,9 +85,7 @@ packer.startup(function()
     use({
         "akinsho/git-conflict.nvim",
         tag = "*",
-        config = function()
-            require("git-conflict").setup()
-        end,
+        config = util.safe_require("git-conflict",{}),
     })
 
     -- Deno
@@ -111,13 +112,8 @@ packer.startup(function()
     --    end,
     --})
     -- Others
-    use({ "nvim-tree/nvim-web-devicons", config = function()
-          local status, icons = pcall(require, "nvim-web-devicons")
-          if status then
-              icons.setup({default = true, strict = true}) 
-          end
-        end})
-    use({ "notjedi/nvim-rooter.lua", run = require("nvim-rooter").setup() })
+    use({ "nvim-tree/nvim-web-devicons", config = util.safe_require("nvim-web-devicons", {default=true, strict=true})})
+    use({ "notjedi/nvim-rooter.lua", run = util.safe_require("nvim-rooter",{}) })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
