@@ -14,4 +14,10 @@ util.isInstalled = function( path )
   return vim.fn.empty( vim.fn.glob( path ) ) == 0 and 1 or 0
 end
 
+util.safe_require = function(mod, config)
+    local status, mod = pcall(require, mod)
+    if status then
+	mod.setup(config)
+    end
+end
 return util
