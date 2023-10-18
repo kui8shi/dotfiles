@@ -3,3 +3,4 @@ if [ -z $_PATH ]; then
 else
   export PATH="$_PATH"
 fi
+export PATH=$PATH:$HOME/.local/bin
