@@ -8,18 +8,18 @@
 	email = 51389194+kui8shi@users.noreply.github.com
 	name = kui8shi
 [github]
-	user = ez2atke
+	user = kui8shi
 [core]
 	autocrlf = input
 	pager=less -q -R 
-	excludesfile = /home/ez2take/.gitignore
+	excludesfile = /home/kui8shi/.gitignore
 [merge]
 	tool = vimdiff
 #[push]
 #	default = simple
 [hub]
-    user = ez2take
+    user = kui8shi
     protocol = git
 [safe]
-	directory = /home/ez2take/projects/rizin
+	directory = /home/kui8shi/projects/rizin
 	directory = *
