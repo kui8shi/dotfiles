@@ -1,5 +1,5 @@
 autoload -Uz compinit
-compinit
+compinit -U
 
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*:messages' format '%F{YELLOW}%d'$DEFAULT
