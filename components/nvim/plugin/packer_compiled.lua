@@ -104,6 +104,12 @@ _G.packer_plugins = {
     path = "/home/kui8shi/.local/share/nvim/site/pack/packer/start/iceberg.vim",
     url = "https://github.com/cocopon/iceberg.vim"
   },
+  ["leap.nvim"] = {
+    config = { "\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\25add_default_mappings\tleap\frequire\0" },
+    loaded = true,
+    path = "/home/kui8shi/.local/share/nvim/site/pack/packer/start/leap.nvim",
+    url = "https://github.com/ggandor/leap.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/kui8shi/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -150,6 +156,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
+    config = { "\27LJ\2\ng\0\0\2\0\6\0\t6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0'\1\5\0=\1\4\0K\0\1\0\31nvim_treesitter#foldexpr()\rfoldexpr\texpr\15foldmethod\bopt\bvimý\2\1\0\n\0\21\0\0316\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\24€9\2\3\0015\4\a\0005\5\4\0005\6\5\0=\6\6\5=\5\b\0045\5\t\0=\5\n\4B\2\2\0016\2\v\0009\2\f\0029\2\r\0025\4\14\0005\5\17\0006\6\v\0009\6\f\0069\6\15\6'\b\16\0004\t\0\0B\6\3\2=\6\18\0053\6\19\0=\6\20\5B\2\3\1K\0\1\0\rcallback\0\ngroup\1\0\0\23TS_FOLD_WORKAROUND\24nvim_create_augroup\1\6\0\0\rBufEnter\vBufAdd\vBufNew\15BufNewFile\16BufWinEnter\24nvim_create_autocmd\bapi\bvim\vindent\1\0\1\fenabled\2\14highlight\1\0\0\fdisable\1\4\0\0\blua\ttoml\trust\1\0\1\fenabled\2\nsetup\28nvim-treesitter.configs\frequire\npcall\0" },
     loaded = true,
     path = "/home/kui8shi/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -187,6 +194,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\ng\0\0\2\0\6\0\t6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0'\1\5\0=\1\4\0K\0\1\0\31nvim_treesitter#foldexpr()\rfoldexpr\texpr\15foldmethod\bopt\bvimý\2\1\0\n\0\21\0\0316\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\24€9\2\3\0015\4\a\0005\5\4\0005\6\5\0=\6\6\5=\5\b\0045\5\t\0=\5\n\4B\2\2\0016\2\v\0009\2\f\0029\2\r\0025\4\14\0005\5\17\0006\6\v\0009\6\f\0069\6\15\6'\b\16\0004\t\0\0B\6\3\2=\6\18\0053\6\19\0=\6\20\5B\2\3\1K\0\1\0\rcallback\0\ngroup\1\0\0\23TS_FOLD_WORKAROUND\24nvim_create_augroup\1\6\0\0\rBufEnter\vBufAdd\vBufNew\15BufNewFile\16BufWinEnter\24nvim_create_autocmd\bapi\bvim\vindent\1\0\1\fenabled\2\14highlight\1\0\0\fdisable\1\4\0\0\blua\ttoml\trust\1\0\1\fenabled\2\nsetup\28nvim-treesitter.configs\frequire\npcall\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: leap.nvim
+time([[Config for leap.nvim]], true)
+try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\25add_default_mappings\tleap\frequire\0", "config", "leap.nvim")
+time([[Config for leap.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
