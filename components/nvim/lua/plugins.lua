@@ -52,6 +52,7 @@ packer.startup(function()
   use({ "hrsh7th/cmp-path" }) -- path completions
   use({ "hrsh7th/cmp-nvim-lsp" })
   use({ "onsails/lspkind-nvim" })
+  use({ "github/copilot.vim" })
 
   -- Snippets
   use({ "hrsh7th/vim-vsnip" }) --snippet engine
@@ -124,29 +125,7 @@ packer.startup(function()
       require("leap").add_default_mappings()
     end
   })
-  -- Deno
-  -- SKK(Japanese Input)
-  --use({
-  --    "vim-skk/skkeleton",
-  --    wants = { "denops.vim" },
-  --    setup = function()
-  --        vim.keymap.set("i", "jk", "<Plug>(skkeleton-toggle)")
-  --        --vim.keymap.set("i", "jl", "<Plug>(skkeleton-disable)")
-  --    end,
-  --    config = function()
-  --        local data_path = vim.fn.stdpath("data")
-  --        local dictionary_source_path = data_path .. "/SKK-JISYO.M"
-  --        local my_dictionary_path = data_path .. "/SKK-JISYO.MY"
-  --        vim.fn["skkeleton#config"]({
-  --            globalJisyo = dictionary_source_path,
-  --            userJisyo = my_dictionary_path,
-  --            markerHenkan = "<>",
-  --            markerHenkanSelect = ">>",
-  --            eggLikeNewline = true,
-  --            --registerConvertResult = true,
-  --        })
-  --    end,
-  --})
+  
   -- Others
   use({ "nvim-tree/nvim-web-devicons", config = util.safe_require("nvim-web-devicons", {default=true, strict=true})})
   use({ "notjedi/nvim-rooter.lua", run = util.safe_require("nvim-rooter",{}) })
