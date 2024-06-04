@@ -11,15 +11,26 @@
 	user = kui8shi
 [core]
 	autocrlf = input
-	pager=less -q -R 
+	pager = delta
 	excludesfile = /home/kui8shi/.gitignore
 [merge]
 	tool = vimdiff
 #[push]
 #	default = simple
 [hub]
-    user = kui8shi
-    protocol = git
+    	user = kui8shi
+    	protocol = git
 [safe]
 	directory = /home/kui8shi/projects/rizin
 	directory = *
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true    # use n and N to move between diff sections
+	# delta detects terminal colors automatically; set one of these to disable auto-detection
+	# dark = true
+	# light = true
+[merge]
+    conflictstyle = diff3
+[diff]
+        colorMoved = default
