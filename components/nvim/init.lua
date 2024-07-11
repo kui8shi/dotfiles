@@ -112,4 +112,5 @@ else
     require("lsp")
     require("formatter")
     require("completion")
+    require("filetype")
 end

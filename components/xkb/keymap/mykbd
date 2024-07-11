@@ -4,8 +4,9 @@ xkb_keymap {
 	xkb_compat    { include "complete+japan+ledscroll(group_lock)"	};
 	xkb_symbols   { include "pc+jp"
                         replace key <MUHE> { [ Control_L ] };
-                        modifier_map Control { <MUHE> };
+                        modifier_map Control { <MUHE>, <CAPS> };
                         replace key <HENK> { [ space ] };
+                        replace key <CAPS> { [ Control_L ] };
         };
 	xkb_geometry  { include "pc(pc105)"	};
 };

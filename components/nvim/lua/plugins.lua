@@ -52,7 +52,7 @@ packer.startup(function()
   use({ "hrsh7th/cmp-path" }) -- path completions
   use({ "hrsh7th/cmp-nvim-lsp" })
   use({ "onsails/lspkind-nvim" })
-  use({ "github/copilot.vim" })
+  -- use({ "github/copilot.vim" })
 
   -- Snippets
   use({ "hrsh7th/vim-vsnip" }) --snippet engine
@@ -104,11 +104,12 @@ packer.startup(function()
   })
 
   -- Explorer
+  
   use({
-    "nvim-tree/nvim-tree.lua",
+    "kevinhwang91/rnvimr",
     run = {
-      util.safe_require("nvim-tree",{}),
-      util.map("n", "<Leader>e", ":NvimTreeFindFileToggle<CR>"),
+      util.safe_require("rnvimr",{}),
+      util.map("n", "<Leader>e", ":RnvimrToggle<CR>"),
     },
   })
   -- Git
