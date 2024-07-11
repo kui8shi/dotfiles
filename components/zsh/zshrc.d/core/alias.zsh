@@ -70,4 +70,8 @@ if (type nvim &>/dev/null)
 refresh(){
   echo c
 }
+
+if (type bat &> /dev/null);then
+  alias cat=bat
+fi
 alias globalip='curl http://ipecho.net/plain'
