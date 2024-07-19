@@ -11,12 +11,11 @@
 	user = kui8shi
 [core]
 	autocrlf = input
-	pager = delta
+	pager = bat
 	excludesfile = /home/kui8shi/.gitignore
+	editor = nvim
 [merge]
 	tool = vimdiff
-#[push]
-#	default = simple
 [hub]
     	user = kui8shi
     	protocol = git
@@ -35,8 +34,8 @@
 [diff]
         colorMoved = default
 [credential "https://github.com"]
-	helper = 
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
 	helper = !/usr/bin/gh auth git-credential
+[oh-my-zsh]
+	git-commit-alias = 608d62b2a5ee7f3af62dd8f31d47c167bf04547f

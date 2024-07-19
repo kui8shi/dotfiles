@@ -119,12 +119,32 @@ require("mason").setup({
     },
 })
 
+vim.filetype.add {
+  extension = {
+    inc = 'c'
+  }
+}
+
+local servers = {
+    clangd = {},
+    rust_analyzer = {},
+    lua_ls = {
+      Lua = {
+        workspace = { checkThirdParty = false },
+        telemetry = { enable = false },
+      },
+    },
+}
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup {
+    ensure_installed = vim.tbl_keys(servers),
+}
 require("mason-lspconfig").setup_handlers({
     function(server_name)
         require("lspconfig")[server_name].setup({
             capabilities = capabilities,
+            settings = servers[server_name],
+            filetypes = (servers[server_name] or {}).filetypes,
         })
     end,
 })

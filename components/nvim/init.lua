@@ -36,7 +36,7 @@ local options = {
     swapfile = false,
     shell = "zsh",
     backupskip = { "/tmp/*" },
-    clipboard = "unnamed", -- copy yank on clipboard
+    clipboard = "unnamedplus", -- copy yank on clipboard
     number = true, -- don't show line numbers
     relativenumber = false, -- but show relative line numbers
     autoindent = true, -- auto indent when newline
@@ -60,7 +60,6 @@ local options = {
     listchars = "tab:>,-,trail:.",
     -- Visual
     pumheight = 10,
-    cmdheight = 0,
     termguicolors = true,
     cursorline = true,
 }
@@ -92,6 +91,21 @@ vim.cmd([[set iskeyword+=-]]) -- include '-' as a part of a word. e.g word-with-
 --endfunction
 --com! ShowMaps call s:ShowMaps()      -- Enable :ShowMaps to call the function
 
+-- Additional clipboard settings for WSL: Use system clipboard / WSL fix
+if vim.fn.has('wsl') == 1 then
+    vim.g.clipboard = {
+        name = 'WslClipboard',
+        copy = {
+            ['+'] = 'clip.exe',
+            ['*'] = 'clip.exe',
+        },
+        paste = {
+            ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+            ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        },
+        cache_enabled = 0,
+    }
+end
 -- ------------------------------------------------------------
 -- visual
 -- ------------------------------------------------------------
