@@ -3,7 +3,7 @@ set wrap
 set showmatch
 autoload colors
 colors
-setopt auto_cd
+setopt autocd
 setopt auto_pushd
 setopt auto_list
 setopt correct

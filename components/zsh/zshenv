@@ -6,3 +6,4 @@ typeset -TU PATH path && path+=($HOME/.local/bin)
 typeset -TU XDG_DATA_DIRS data_dirs \
   && data_dirs+=($XDG_DATA_HOME) \
   && data_dirs+=(/usr/share)
+. "$HOME/.cargo/env"
