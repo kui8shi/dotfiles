@@ -17,8 +17,8 @@
 [color]
 	ui = auto
 [user]
-	email = 51389194+kui8shi@users.noreply.github.com
-	name = kui8shi
+	email = gbiifvrc517@gmail.com
+	name = kuinshi
 [github]
 	user = kui8shi
 [core]
@@ -51,3 +51,10 @@
 	helper = !/usr/bin/gh auth git-credential
 [oh-my-zsh]
 	git-commit-alias = 8127e5838c24a7fbfaac5b9a02609e033cb3c5e2
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
