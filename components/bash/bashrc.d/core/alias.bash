@@ -28,36 +28,19 @@ mkcd() {
   [ $? -eq 0 ] && cd "$1"
 }
 
-alias pingg='ping -c 3 www.google.co.jp'
 alias less='less -R'
 
 alias ssh-add='ssh-add -t 1h'
 
-alias sozsh='source ~/.zshrc'
+alias sobash='source ~/.bashrc'
 alias :q='exit'
-alias :Q='exit'
 alias vi='vim'
 
-alias wifi='nmtui'
-alias pm-suspend='sudo pm-suspend'
-
 alias t='tmux'
-alias pdb='python /usr/lib/python3.10/pdb.py'
-
 alias chx="chmod a+x"
 
-alias unzip-cp932='unzip -O cp932'
-
-alias zshconfig="${EDITOR} ~/.zshrc.d; source ~/.zshrc"
-if (type tmux &> /dev/null); then
-  alias tmuxconfig="${EDITOR} ~/.tmux.conf; tmux source-file ~/.tmux.conf"
-fi
-
-if (type i3 &> /dev/null); then
-  alias i3config="${EDITOR} ~/.config/i3/config"
-fi
+alias bashconfig="${EDITOR} ~/.bashrc.d; source ~/.bashrc"
 
 if (type bat &> /dev/null);then
   alias cat=bat
 fi
-alias globalip='curl http://ipecho.net/plain'

@@ -59,7 +59,7 @@ packer.startup(function()
 
   -- LSP
   use({ "neovim/nvim-lspconfig" }) -- enable LSP
-  use({ "williamboman/mason.nvim", run = ":MasonUpdate" }) -- simple to use language server installer
+  use({ "williamboman/mason.nvim" }) -- simple to use language server installer
   use({ "williamboman/mason-lspconfig.nvim" }) -- bridge between mason and nvim-lspconfig
   -- use{ "glepnir/lspsaga.nvim", run = require("lspsaga").setup() } -- LSP UIs
 
@@ -100,7 +100,7 @@ packer.startup(function()
         })
       end
     end,
-    run = require('nvim-treesitter.install').update({ with_sync = true })
+    -- run = require('nvim-treesitter.install').update({ with_sync = true })
   })
 
   -- Explorer
