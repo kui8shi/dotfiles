@@ -104,13 +104,12 @@ packer.startup(function()
   })
 
   -- Explorer
-  
   use({
-    "kevinhwang91/rnvimr",
-    run = {
-      util.safe_require("rnvimr",{}),
-      util.map("n", "<Leader>e", ":RnvimrToggle<CR>"),
-    },
+    "stevearc/oil.nvim",
+    config = function()
+      require("oil").setup()
+    end,
+    run = util.map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
   })
   -- Git
   use({
