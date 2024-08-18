@@ -141,11 +141,16 @@ require("mason-lspconfig").setup {
 }
 require("mason-lspconfig").setup_handlers({
     function(server_name)
-        require("lspconfig")[server_name].setup({
-            capabilities = capabilities,
-            settings = servers[server_name],
-            filetypes = (servers[server_name] or {}).filetypes,
-        })
+        if (server_name == "clangd") then
+          require("lspconfig")[server_name].setup({
+              capabilities = capabilities,
+              offset_encoding = 'utf-8'
+          })
+        else
+          require("lspconfig")[server_name].setup({
+              capabilities = capabilities,
+          })
+        end
     end,
 })
 -- LSP handlers
