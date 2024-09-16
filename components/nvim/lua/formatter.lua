@@ -1,42 +1,89 @@
-local status,null_ls = pcall(require,"null-ls")
-if not status then
+local status_lint,nvim_lint = pcall(require,"lint")
+local status_conform,conform = pcall(require,"conform")
+local status_registry,mason_registry= pcall(require,"mason-registry")
+if not status_lint or not status_conform or not status_registry then
   return
 end
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+-- Function to get all installed tools by Mason
+local function get_mason_tools()
+  local tools = {}
+  for _, tool in ipairs(mason_registry.get_installed_packages()) do
+    local name = tool.spec.name
+    local categories = tool.spec.categories
+    for _, category in ipairs(categories) do
+      if not tools[category] then
+        tools[category] = {}
+      end
+      table.insert(tools[category], name)
+    end
+  end
+  return tools
+end
 
-null_ls.setup({
-    -- add your sources / config options here
-    sources = {
-        null_ls.builtins.formatting.stylua.with({
-            extra_args = { "--indent-type", "Spaces" },
-        }),
-        null_ls.builtins.formatting.clang_format.with({
-            extra_args = {
-                "--style",
-                "file", --prefer local .clang-format config file
-                "--offset-encoding",
-                "utf-8",
-            },
-        }),
-    },
-    debug = false,
-    on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePost", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    vim.lsp.buf.format({
-                        bufnr = bufnr,
-                        timeout_ms = 2000,
-                        filter = function(client)
-                            return client.name == "null-ls"
-                        end,
-                    })
-                end,
-            })
-        end
-    end,
+-- Get installed tools
+local mason_tools = get_mason_tools()
+
+-- Set up nvim-lint
+nvim_lint.linters_by_ft = {}
+
+for _, linter in ipairs(mason_tools["linter"] or {}) do
+  local linter_filetypes = nvim_lint.linters[linter].filetypes
+  if linter_filetypes then
+    for _, ft in ipairs(linter_filetypes) do
+      if not nvim_lint.linters_by_ft[ft] then
+        nvim_lint.linters_by_ft[ft] = {}
+      end
+      table.insert(nvim_lint.linters_by_ft[ft], linter)
+    end
+  end
+end
+
+-- Set up conform.nvim
+
+local formatters_by_ft = {}
+for _, formatter in ipairs(mason_tools["formatter"] or {}) do
+  local formatter_filetypes = conform.formatters[formatter].filetypes
+  if formatter_filetypes then
+    for _, ft in ipairs(formatter_filetypes) do
+      if not formatters_by_ft[ft] then
+        formatters_by_ft[ft] = {}
+      end
+      table.insert(formatters_by_ft[ft], formatter)
+    end
+  end
+end
+
+
+conform.setup({
+  formatters_by_ft = formatters_by_ft
 })
+
+-- Define keymaps
+vim.keymap.set('n', 'gf', function()
+  conform.format({ 
+    async = true,
+    lsp_fallback = true,
+    bufnr = vim.api.nvim_get_current_buf(),
+  })
+end, { noremap = true, silent = true, desc = "Format current buffer" })
+
+vim.keymap.set('n', 'gl', function ()
+  require("lint").try_lint()
+end, { noremap = true, silent = true, desc = "Lint current buffer" })
+
+-- Set up autoformatting and auto-linting on save
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+--   callback = function()
+--     conform.format({ async = true, lsp_fallback = true })
+--     lint()
+--   end,
+-- })
+-- 
+-- Optional: Set up format on save
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   pattern = "*",
+--   callback = function(args)
+--     conform.format({ bufnr = args.buf })
+--   end,
+-- })

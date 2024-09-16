@@ -63,9 +63,9 @@ packer.startup(function()
   use({ "williamboman/mason-lspconfig.nvim" }) -- bridge between mason and nvim-lspconfig
   -- use{ "glepnir/lspsaga.nvim", run = require("lspsaga").setup() } -- LSP UIs
 
-  -- Formatter
-  --use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
-  -- (I want to only use Mason but formatters needs to be well configured. so I choose null-ls)
+  -- Linter & Formatter
+  use({"mfussenegger/nvim-lint"}) -- for linters
+  use({"stevearc/conform.nvim"}) -- for formatters
 
   -- Fuzz Finder
   use({ "nvim-telescope/telescope.nvim" })
@@ -104,6 +104,57 @@ packer.startup(function()
   })
 
   -- Explorer
+  use({
+    "nvim-tree/nvim-tree.lua",
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require("nvim-tree").setup({
+        update_focused_file = {
+          enable = true,
+          update_cwd = true,
+        },
+        view = {
+          width = 30,
+          side = 'left',
+        },
+        on_attach = function(bufnr)
+          local api = require('nvim-tree.api')
+          local function opts(desc)
+            return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+          end
+
+          -- keymaps can go here
+          vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
+          vim.keymap.set('n', '<2-LeftMouse>', api.node.open.edit, opts('Open'))
+          vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
+          vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
+          vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
+          vim.keymap.set('n', 'C', api.tree.change_root_to_node, opts('CD'))
+          vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('Up'))
+          -- This is the important part for your question
+          api.events.subscribe(api.events.Event.TreeOpen, function()
+            api.tree.find_file({
+              open = true,
+              focus = true,
+            })
+          end)
+        end,
+        })
+    end,
+    run = util.map("n", "<Leader>e", ":NvimTreeToggle<CR>", { desc = "Open nvim-tree panel on left side" })
+  })
+  -- Autoclose command
+  vim.api.nvim_create_autocmd("BufEnter", {
+    nested = true,
+    callback = function()
+      if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
+        vim.cmd "quit"
+      end
+    end
+  })
+
   use({
     "stevearc/oil.nvim",
     config = function()
