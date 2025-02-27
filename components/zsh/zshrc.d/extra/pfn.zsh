@@ -1,8 +1,0 @@
-alias kubectl='pf kubectl'
-alias pfkube='pf pfkube'
-alias pftaskqueue='pf pftaskqueue'
-alias git-ghost='pf git-ghost'
-alias pfbuild='pf pfbuild'
-alias hdfs='pf hdfs'
-#alias docker='pf docker'
-alias argo='pf argo'
