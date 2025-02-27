@@ -18,7 +18,7 @@
 	ui = auto
 [user]
 	email = gbiifvrc517@gmail.com
-	name = kuinshi
+	name = kui8shi
 [github]
 	user = kui8shi
 [core]
@@ -50,7 +50,7 @@
 [credential "https://gist.github.com"]
 	helper = !/usr/bin/gh auth git-credential
 [oh-my-zsh]
-	git-commit-alias = e83c10e0a0737921b0ed26ce1ad64f366a6200b0
+	git-commit-alias = c690f731618959cba3b85500acee20ebf43e51c1
 [init]
 	defaultBranch = main
 [filter "lfs"]
