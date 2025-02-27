@@ -39,33 +39,58 @@ packer.startup(function()
   use({ "cocopon/iceberg.vim" }) -- Color scheme
 
   -- Status Line
-  use({ "nvim-lualine/lualine.nvim", 
-    run = util.safe_require("lualine",{}) }) -- Statusline
-  use({ "windwp/nvim-autopairs", 
-    run = util.safe_require("nvim-autopairs",{}) }) -- Autopairs, integrates with both cmp and treesitter
-  use({ "akinsho/bufferline.nvim", 
-    run = util.safe_require("bufferline",{}) })
+  use({
+    "nvim-lualine/lualine.nvim",
+    run = util.safe_require("lualine", {})
+  }) -- Statusline
+  use({
+    "windwp/nvim-autopairs",
+    run = util.safe_require("nvim-autopairs", {})
+  }) -- Autopairs, integrates with both cmp and treesitter
+  use({
+    "akinsho/bufferline.nvim",
+    run = util.safe_require("bufferline", {})
+  })
 
   -- Completion Plugins
-  use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
+  use({ "hrsh7th/nvim-cmp" })   -- The completion plugin
   use({ "hrsh7th/cmp-buffer" }) -- buffer completions
-  use({ "hrsh7th/cmp-path" }) -- path completions
+  use({ "hrsh7th/cmp-path" })   -- path completions
   use({ "hrsh7th/cmp-nvim-lsp" })
   use({ "onsails/lspkind-nvim" })
-  -- use({ "github/copilot.vim" })
+
+  -- AI support
+  use({
+    "olimorris/codecompanion.nvim",
+    config = util.safe_require("codecompanion", {
+      strategies = {
+        chat = {
+          adapter = "anthropic",
+        },
+        inline = {
+          adapter = "anthropic",
+        }
+      },
+    }),
+    run = vim.cmd([[cab cc CodeCompanion]]),
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    }
+  })
 
   -- Snippets
   use({ "hrsh7th/vim-vsnip" }) --snippet engine
 
   -- LSP
-  use({ "neovim/nvim-lspconfig" }) -- enable LSP
-  use({ "williamboman/mason.nvim" }) -- simple to use language server installer
+  use({ "neovim/nvim-lspconfig" })             -- enable LSP
+  use({ "williamboman/mason.nvim" })           -- simple to use language server installer
   use({ "williamboman/mason-lspconfig.nvim" }) -- bridge between mason and nvim-lspconfig
   -- use{ "glepnir/lspsaga.nvim", run = require("lspsaga").setup() } -- LSP UIs
 
   -- Linter & Formatter
-  use({"mfussenegger/nvim-lint"}) -- for linters
-  use({"stevearc/conform.nvim"}) -- for formatters
+  use({ "mfussenegger/nvim-lint" }) -- for linters
+  use({ "stevearc/conform.nvim" })  -- for formatters
 
   -- Fuzz Finder
   use({ "nvim-telescope/telescope.nvim" })
@@ -74,7 +99,7 @@ packer.startup(function()
   -- Treesitter
   use({
     "nvim-treesitter/nvim-treesitter",
-    config = function ()
+    config = function()
       local ok, treesitter = pcall(require, "nvim-treesitter.configs")
       if ok then
         treesitter.setup({
@@ -91,11 +116,11 @@ packer.startup(function()
           }
         })
         -- see https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation#packernvim
-        vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
+        vim.api.nvim_create_autocmd({ 'BufEnter', 'BufAdd', 'BufNew', 'BufNewFile', 'BufWinEnter' }, {
           group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
           callback = function()
-            vim.opt.foldmethod     = 'expr'
-            vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
+            vim.opt.foldmethod = 'expr'
+            vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()'
           end
         })
       end
@@ -141,7 +166,7 @@ packer.startup(function()
             })
           end)
         end,
-        })
+      })
     end,
     run = util.map("n", "<Leader>e", ":NvimTreeToggle<CR>", { desc = "Open nvim-tree panel on left side" })
   })
@@ -166,20 +191,26 @@ packer.startup(function()
   use({
     "akinsho/git-conflict.nvim",
     tag = "*",
-    config = util.safe_require("git-conflict",{}),
+    config = util.safe_require("git-conflict", {}),
+  })
+  use({
+    "lewis6991/gitsigns.nvim",
+    config = util.safe_require("gitsigns"),
+    run = vim.cmd([[cab gs Gitsigns]])
   })
 
   -- Navigation
-  use({ 
+  use({
     "ggandor/leap.nvim",
     config = function()
       require("leap").add_default_mappings()
     end
   })
-  
+
   -- Others
-  use({ "nvim-tree/nvim-web-devicons", config = util.safe_require("nvim-web-devicons", {default=true, strict=true})})
-  use({ "notjedi/nvim-rooter.lua", run = util.safe_require("nvim-rooter",{}) })
+  use({ "nvim-tree/nvim-web-devicons", config = util.safe_require("nvim-web-devicons", { default = true, strict = true }) })
+  use({ "notjedi/nvim-rooter.lua", run = util.safe_require("nvim-rooter", {}) })
+  use({ "simeji/winresizer", config = util.safe_require("winresizer", {})})
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
