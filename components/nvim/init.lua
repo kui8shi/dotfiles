@@ -20,7 +20,6 @@ util.map("i", "<C-h>", "<Left>")
 util.map("i", "<C-l>", "<Right>")
 util.map("i", "<C-k>", "<Up>")
 --util.map("i", "<C-j>", "<Down>")
-util.map("i", "<C-u>", "<C-o>u")
 
 util.map("n", "J", "<C-d>")
 util.map("n", "K", "<C-u>")
@@ -124,6 +123,7 @@ endtry
 if not pcall(require, "plugins") then
     print("Loading plugins.lua failed")
 else
+    require("git")
     require("finder")
     require("lsp")
     require("formatter")
