@@ -3,3 +3,4 @@ build
 .clangd
 *.log
 log
+CLAUDE.md
