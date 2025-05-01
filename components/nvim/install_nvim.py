@@ -4,7 +4,7 @@ import sys
 import tarfile
 import urllib.request
 
-url = "https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz"
+url = "https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz"
 nvim_path = "/tmp/nvim-linux64"
 tar_path = nvim_path + ".tar.gz"
 local_path = os.path.join(os.environ["HOME"], ".local")
