@@ -1,4 +1,6 @@
 --init.lua
+-- ensure the `lua` directory is included to package.path
+package.path = "./lua/?.lua;" .. package.path
 local util = require("utils")
 -- ------------------------------------------------------------
 --  key BIND
