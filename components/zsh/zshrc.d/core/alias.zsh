@@ -57,7 +57,4 @@ if (type i3 &> /dev/null); then
   alias i3config="${EDITOR} ~/.config/i3/config"
 fi
 
-if (type bat &> /dev/null);then
-  alias cat=bat
-fi
 alias globalip='curl http://ipecho.net/plain'
