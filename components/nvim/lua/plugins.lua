@@ -59,26 +59,6 @@ packer.startup(function()
   use({ "hrsh7th/cmp-nvim-lsp" })
   use({ "onsails/lspkind-nvim" })
 
-  -- AI support
-  use({
-    "olimorris/codecompanion.nvim",
-    config = util.safe_require("codecompanion", {
-      strategies = {
-        chat = {
-          adapter = "anthropic",
-        },
-        inline = {
-          adapter = "anthropic",
-        }
-      },
-    }),
-    run = vim.cmd([[cab cc CodeCompanion]]),
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    }
-  })
-
   -- Snippets
   use({ "hrsh7th/vim-vsnip" }) --snippet engine
 
@@ -203,14 +183,17 @@ packer.startup(function()
   use({
     "ggandor/leap.nvim",
     config = function()
-      require("leap").add_default_mappings()
+      -- require("leap").create_default_mappings()
+      vim.keymap.set({ "n", "x", "o" }, "s",  "<Plug>(leap-forward)")
+      vim.keymap.set({ "n", "x", "o" }, "S",  "<Plug>(leap-backward)")
+      vim.keymap.set({ "n", "x", "o" }, "gs", "<Plug>(leap-cross-window)")
     end
   })
 
   -- Others
   use({ "nvim-tree/nvim-web-devicons", config = util.safe_require("nvim-web-devicons", { default = true, strict = true }) })
   use({ "notjedi/nvim-rooter.lua", run = util.safe_require("nvim-rooter", {}) })
-  use({ "simeji/winresizer", config = util.safe_require("winresizer", {})})
+  use({ "simeji/winresizer", config = util.safe_require("winresizer", {}) })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

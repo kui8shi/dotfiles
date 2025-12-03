@@ -131,4 +131,6 @@ else
     require("formatter")
     require("completion")
     require("filetype")
+    require("increment")
+    require("tex")
 end

@@ -1,6 +1,6 @@
-local status_lint,nvim_lint = pcall(require,"lint")
-local status_conform,conform = pcall(require,"conform")
-local status_registry,mason_registry= pcall(require,"mason-registry")
+local status_lint, nvim_lint = pcall(require, "lint")
+local status_conform, conform = pcall(require, "conform")
+local status_registry, mason_registry = pcall(require, "mason-registry")
 if not status_lint or not status_conform or not status_registry then
   return
 end
@@ -61,14 +61,14 @@ conform.setup({
 
 -- Define keymaps
 vim.keymap.set('n', 'gf', function()
-  conform.format({ 
+  conform.format({
     async = true,
     lsp_fallback = true,
     bufnr = vim.api.nvim_get_current_buf(),
   })
 end, { noremap = true, silent = true, desc = "Format current buffer" })
 
-vim.keymap.set('n', 'gl', function ()
+vim.keymap.set('n', 'gl', function()
   require("lint").try_lint()
 end, { noremap = true, silent = true, desc = "Lint current buffer" })
 
@@ -79,7 +79,7 @@ end, { noremap = true, silent = true, desc = "Lint current buffer" })
 --     lint()
 --   end,
 -- })
--- 
+--
 -- Optional: Set up format on save
 -- vim.api.nvim_create_autocmd("BufWritePre", {
 --   pattern = "*",
