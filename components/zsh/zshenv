@@ -1,0 +1,10 @@
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+typeset -TU PATH path && path+=($HOME/.local/bin)
+typeset -TU XDG_DATA_DIRS data_dirs \
+  && data_dirs+=($XDG_DATA_HOME) \
+  && data_dirs+=(/usr/share)
+. "$HOME/.cargo/env"
+PATH=$HOME/.local/nvim-linux64/bin:$PATH

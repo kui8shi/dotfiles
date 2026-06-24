@@ -1,0 +1,96 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(gh:*)",
+      "Bash(go:*)",
+      "Bash(npm:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(cd:*)",
+      "Bash(cat:*)",
+      "Write(*)",
+      "Edit(*)"
+    ],
+    "deny": [
+      "Bash(rm -rf:*)"
+    ],
+    "defaultMode": "auto"
+  },
+  "enabledMcpjsonServers": [
+    "rocro"
+  ],
+  "statusLine": {
+    "type": "command",
+    "command": "sh /home/shkoni/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "ponytail@ponytail": true
+  },
+  "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "voice": {
+    "enabled": false,
+    "mode": "hold"
+  },
+  "skipWorkflowUsageWarning": true,
+  "theme": "auto",
+  "autoCompactEnabled": true,
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": false,
+  "model": "sonnet",
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "PANE=${TMUX_PANE:-$(cat /tmp/cc_pane_cache 2>/dev/null)}; [ -n \"$PANE\" ] && tmux set-option -w -t \"$PANE\" @cc_state \"||\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "PANE=${TMUX_PANE:-$(cat /tmp/cc_pane_cache 2>/dev/null)}; [ -n \"$PANE\" ] && tmux set-option -w -t \"$PANE\" @cc_state \"||\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$TMUX_PANE\" ] && echo \"$TMUX_PANE\" > /tmp/cc_pane_cache && tmux set-option -w -t \"$TMUX_PANE\" @cc_state \"|>\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$TMUX_PANE\" ] && echo \"$TMUX_PANE\" > /tmp/cc_pane_cache && tmux set-option -w -t \"$TMUX_PANE\" @cc_state \"|>\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}

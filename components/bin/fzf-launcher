@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+# multi-mode fzf: files (default) / history (ctrl-r) / fulltext (ctrl-a)
+
+FILES_CMD="find . | grep -v '/\.' | grep -v '^\.$'"
+HIST_CMD="fc -l 1 | sed 's/^ *[0-9]* *//' | grep -v '^\s*$'"
+TEXT_CMD="rg --line-number --no-heading . 2>/dev/null"
+
+FILES_PREV='bat --color=always {}'
+TEXT_PREV='l=$(echo {} | cut -d: -f2); bat --color=always --wrap character --highlight-line $l --line-range $((l>10?l-10:1)):$((l+10)) $(echo {} | cut -d: -f1)'
+HIST_PREV='echo {}'
+
+selected=$(eval "$FILES_CMD" | fzf \
+  --prompt 'FILES> ' \
+  --preview "$FILES_PREV" \
+  --preview-window 'right:60%' \
+  --bind "ctrl-r:change-prompt(HISTORY> )+reload($HIST_CMD)+change-preview($HIST_PREV)" \
+  --bind "ctrl-f:change-prompt(FILES> )+reload($FILES_CMD)+change-preview($FILES_PREV)" \
+  --bind "ctrl-a:change-prompt(TEXT> )+reload($TEXT_CMD)+change-preview($TEXT_PREV)")
+
+[ -z "$selected" ] && exit 0
+
+if echo "$selected" | grep -qE '^[^:]+:[0-9]+:'; then
+  file=$(echo "$selected" | cut -d: -f1)
+  line=$(echo "$selected" | cut -d: -f2)
+  tmux send-keys -t '{last}' "${EDITOR:-nvim} +$line $file" Enter
+else
+  tmux send-keys -t '{last}' "$selected" Enter
+fi
