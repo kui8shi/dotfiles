@@ -1,12 +1,7 @@
 dotfiles
 ==============
-this was originated from cocuh's dotfiles.
 
-usage
------
-
-Run `python install.py`. it makes symbolic link to dotfiles.
-This script required python. (but compatible for python2/3)
+## Usage
 
 ```
 $ cd ~/dotfiles
@@ -14,26 +9,29 @@ $ ./install.py [PROFILE]
 $ ./regenzshrc.py
 ```
 
-### warning
-This install script doesn't generate `.zshrc`.
-You must run `regenzshrc.py` to generate `.zshrc` after calling install script.
-After first zsh script generation, `.zshrc` watches `.zshrc.d/*/*.zsh` files to re-generate itself.
+`install.py` creates symbolic links defined in `install.conf`.
+`regenzshrc.py` generates `.zshrc` from `zshrc.d/**/*.zsh`. After the first generation, `.zshrc` auto-regenerates when files under `.zshrc.d/` change.
 
-profile
--------
- desktop
+## Profiles
 
-component
--------
-Components define how to make symbolic links on each dotfiles.
+| Profile | Description |
+|---------|-------------|
+| `all`   | Full desktop setup |
+| `server`| Minimal server setup |
 
-* zsh
-* bin
-* vim
-* tmux
-* i3
-* ipython
-* xdefaults
-* xresources
-* python
-  * virtualenvwrapper
+## Components
+
+| Component | Description |
+|-----------|-------------|
+| `zsh`     | zsh config, modular `zshrc.d/` |
+| `bash`    | bash config |
+| `nvim`    | Neovim config (Lua) |
+| `tmux`    | tmux config |
+| `git`     | gitconfig, gitignore |
+| `kitty`   | Kitty terminal config |
+| `python`  | Python startup, ipython |
+| `claude`  | Claude Code settings |
+| `env`     | Environment variables (`environment.d`) |
+| `xkb`     | Custom keyboard layout |
+| `i3`      | i3wm config |
+| `bin`     | Utility scripts |
