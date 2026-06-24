@@ -1,0 +1,13 @@
+.stignore
+build
+.clangd
+*.log
+log
+CLAUDE.md
+.claude
+container_build.sh
+.cache
+compile_commands.json
+.clang-format
+.mise.toml
+pr-policy.yml

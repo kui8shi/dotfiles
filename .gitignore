@@ -1,0 +1,5 @@
+.idea
+*.swp
+local/*
+.netrwhist
+*/packer_compiled.lua
