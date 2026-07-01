@@ -46,6 +46,9 @@ alias pdb='python /usr/lib/python3.10/pdb.py'
 
 alias chx="chmod a+x"
 
+# rm -> trash (recoverable); cron runs `trash-empty 7` daily
+(( $+commands[trash-put] )) && alias rm='trash-put'
+
 alias unzip-cp932='unzip -O cp932'
 
 alias zshconfig="${EDITOR} ~/.zshrc.d; source ~/.zshrc"
