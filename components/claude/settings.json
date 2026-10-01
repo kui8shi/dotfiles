@@ -23,7 +23,7 @@
   ],
   "statusLine": {
     "type": "command",
-    "command": "sh /home/kui8shi/.claude/statusline-command.sh"
+    "command": "sh $HOME/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true,

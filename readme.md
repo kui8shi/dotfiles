@@ -29,9 +29,8 @@ $ ./regenzshrc.py
 | `tmux`    | tmux config |
 | `git`     | gitconfig, gitignore |
 | `kitty`   | Kitty terminal config |
-| `python`  | Python startup, ipython |
+| `python`  | Python startup |
 | `claude`  | Claude Code settings |
 | `env`     | Environment variables (`environment.d`) |
 | `xkb`     | Custom keyboard layout |
-| `i3`      | i3wm config |
 | `bin`     | Utility scripts |

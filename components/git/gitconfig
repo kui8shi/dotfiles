@@ -16,9 +16,9 @@
 	wip = "!a() {\nlocal _scope _attention _message\nwhile [ $# -ne 0 ]; do\ncase $1 in\n  -s | --scope )\n    if [ -z $2 ]; then\n      echo \"Missing scope!\"\n      return 1\n    fi\n    _scope=\"$2\"\n    shift 2\n    ;;\n  -a | --attention )\n    _attention=\"!\"\n    shift 1\n    ;;\n  * )\n    _message=\"${_message} $1\"\n    shift 1\n    ;;\nesac\ndone\ngit commit -m \"wip${_scope:+(${_scope})}${_attention}:${_message}\"\n}; a"
 [color]
 	ui = auto
-[user]
-	email = kui8shi@users.noreply.github.com
-	name = kui8shi
+[include]
+	# machine-local identity etc. (not tracked)
+	path = ~/.gitconfig.local
 [github]
 	user = kui8shi
 [core]
@@ -32,7 +32,6 @@
     	user = kui8shi
     	protocol = git
 [safe]
-	directory = /home/kui8shi/projects/rizin
 	directory = *
 [interactive]
 	diffFilter = delta --color-only

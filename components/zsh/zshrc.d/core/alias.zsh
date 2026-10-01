@@ -42,7 +42,7 @@ alias wifi='nmtui'
 alias pm-suspend='sudo pm-suspend'
 
 alias t='tmux'
-alias pdb='python /usr/lib/python3.10/pdb.py'
+alias pdb='python3 -m pdb'
 
 alias chx="chmod a+x"
 

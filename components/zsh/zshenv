@@ -6,5 +6,7 @@ typeset -TU PATH path && path+=($HOME/.local/bin)
 typeset -TU XDG_DATA_DIRS data_dirs \
   && data_dirs+=($XDG_DATA_HOME) \
   && data_dirs+=(/usr/share)
-. "$HOME/.cargo/env"
-PATH=$HOME/.local/nvim-linux64/bin:$PATH
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+[[ $OSTYPE == darwin* ]] && _nvim_os=macos || _nvim_os=linux
+path=($HOME/.local/nvim-$_nvim_os-*/bin(N) $path)
+unset _nvim_os

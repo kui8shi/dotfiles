@@ -1,11 +1,25 @@
 import os
+import platform
 import shutil
 import sys
 import tarfile
+import tempfile
 import urllib.request
 
-url = "https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz"
-nvim_path = "/tmp/nvim-linux64"
+def get_asset_name():
+    system = platform.system()
+    machine = platform.machine().lower()
+    arch = "arm64" if machine in ("arm64", "aarch64") else "x86_64"
+    if system == "Darwin":
+        return f"nvim-macos-{arch}"
+    if system == "Linux":
+        return f"nvim-linux-{arch}"
+    sys.exit(f"Unsupported platform: {system} {machine}")
+
+asset = get_asset_name()
+url = f"https://github.com/neovim/neovim/releases/download/stable/{asset}.tar.gz"
+work_dir = tempfile.mkdtemp(prefix="install_nvim_")
+nvim_path = os.path.join(work_dir, asset)
 tar_path = nvim_path + ".tar.gz"
 local_path = os.path.join(os.environ["HOME"], ".local")
 
@@ -15,8 +29,7 @@ def get_nvim():
         tar.extractall(path=nvim_path)
 
 def clean():
-    os.remove(tar_path)
-    os.remove(nvim_path)
+    shutil.rmtree(work_dir, ignore_errors=True)
 
 def install_diff(src, dest_dir):
     for p in os.listdir(src):
@@ -33,5 +46,8 @@ def install_diff(src, dest_dir):
             else:
                 shutil.copy(path, dest)
 
-get_nvim()
-install_diff(nvim_path, local_path)
+try:
+    get_nvim()
+    install_diff(nvim_path, local_path)
+finally:
+    clean()

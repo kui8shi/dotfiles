@@ -1,5 +1,5 @@
 # auto compile
 function regenbashrc() {
   echo regenbashrc
-  python ~/dotfiles/regenbashrc.py
+  python3 ~/dotfiles/regenbashrc.py
 }

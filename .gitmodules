@@ -1,3 +1,0 @@
-[submodule "components/nvim/dein.vim"]
-	path = components/nvim/dein.vim
-	url = https://github.com/Shougo/dein.vim

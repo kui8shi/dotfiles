@@ -1,4 +1,3 @@
-path+=($HOME/.local/nvim-linux64/bin)
 if (type nvim &> /dev/null);then
     alias vim='nvim'
     alias n='nvim'
@@ -7,8 +6,3 @@ if (type nvim &> /dev/null);then
 elif (type vim &> /dev/null);then
     export EDITOR='vim'
 fi
-
-if (type nvim &>/dev/null)
-refresh(){
-  echo c
-}
